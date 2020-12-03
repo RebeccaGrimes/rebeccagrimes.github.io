@@ -1,39 +1,38 @@
-/* ==== WEB BROWSER RESETS  ==== */
-* { box-sizing: border-box; padding: 0; margin: 0 }
-body, html { height: 100% }
-body { max-width: 1600px }
+/*  ============= WEB BROWSER RESETS ============ */
+* { margin: 0; padding: 0; border: none; box-sizing: border-box }
+html { height: 100% }
+body { min-height: 100%; max-width: 1600px; margin-left: auto; margin-right: auto }  
 img { width: 100%; height: auto; display: block }
 
-/* =============== FONT =============== */
+/* =================== FONT ================= */
 
 body { 	font-family: 'Neucha', sans-serif }
 
-
-/* =========== SECTION BLOCK CONTAINERS =========== */
+/* ============== SECTION BLOCK CONTAINERS ============= */
 
 /* Desktops */
 @media all and (min-width:768px) { 
-	.container-block {padding: 4% 12% 4% 12%  }
+	.container-block { padding: 4% 12% 4% 12% }
 }
 
 /* Mobiles */
 @media all and (max-width:767px) { 
-	.container-block { padding: 12% 8% 12% 8% }
+	.container-block { padding:  12% 8% 12% 8% }
 }
 
-/* Section block background colors */
-.bg-watermelon { background-color: #FBBDD9 }
-.bg-apple      { background-color: #B7F3D9 }
-.bg-blueberry  { background-color: #8C6BBE }
-.bg-lemon      { background-color: #F1F1BC }
+/* Section background colors */
+.container-block.bg-watermelon { background-color: #FBBDD9 }
+.container-block.bg-apple      { background-color: #B7F3D9 }
+.container-block.bg-blueberry  { background-color: #8C6BBE }
+.container-block.bg-lemon      { background-color: #F1F1BC }
 
 /* ============== INTRODUCTION TEXT ============ */
 
-h2 {
-	font-size: calc(26px + (54 - 26) * ((100vw - 320px) / (1600 - 320)));
-	color: #733fc0; 
-	text-align: center; 
-	line-height: 1.6;  
+.container-block h2 {
+	font-size: calc(26px + (54 - 26) * ((100vw - 320px) / (1600 - 320))); 
+	color: #733fc0;
+	line-height: 1.6;
+	text-align: center;
 }
 
 /* ==== FLEXBOX: PARENT AND CHILD ELEMENTS ==== */
@@ -57,38 +56,40 @@ h2 {
 /* ======= CONTENT INSIDE FLEXBOX CHILD COLUMNS ======= */
 
 /* Sub-headings  */
-h3 {
-	font-size: calc(32px + (64 - 32) * ((100vw - 320px) / (1600 - 320)));
-	color: #d1274b; 
-	letter-spacing: 2px; 
-	margin-bottom: 4px; ;
+.container-flexbox .item-col-2 h3 {
+	font-size: calc(32px + (64 - 32) * ((100vw - 320px) / (1600 - 320))); 
+	color: #d1274b;
+	line-height: 1.2;
+	letter-spacing: 2px;
+	margin-bottom: 4px;	
 }
 
 /* Text paragraphs */
-p { 
-	font-size: calc(16px + (24 - 16) * ((100vw - 320px) / (1600 - 320)));
-	color: #2F4F4F; 
-	letter-spacing: 1px; 
-	line-height: 1.6; 
+.container-flexbox .item-col-2 p { 
+	font-size: calc(16px + (24 - 16) * ((100vw - 320px) / (1600 - 320))); 
+	color: #2F4F4F;
+	line-height: 1.6;
+	letter-spacing: 1px;	
 }
-
-/* ======= VISUAL GUIDES TO LAYOUT ELEMENTS ======  */
 
 /* Sub-heading, paragraph text against dark background */
 .container-flexbox.bg-blueberry .item-col-2 h3,
 .container-flexbox.bg-blueberry .item-col-2 p { color: #fff } 
 
-/* Centre align Sub-headings and Paragraphs on mobiles */
-@media all and (max-width :767px) {
-	h3, p {text-align: center;}
 
+/* Mobiles: center align headings, paragraphs and images within columns */
+@media all and (max-width:767px) { 
+	.container-flexbox .item-col-2 h3,
+	.container-flexbox .item-col-2 p,
+	.container-flexbox .item-col-2 img { text-align: center }
+	/* Also: bottom margin spacing under images */
+	.container-flexbox .item-col-2 img { margin-bottom: 14px }
 }
 
-
-/* Mobiles: Re-order columns inside first and third flexbox parent containers */ 
-@media all and (max-width: 767px) {
-	.bg-watermelon .item-col-2:nth-child(1) {order: 2; }
-	.bg-watermelon .item-col-2:nth-child(2) {order: 1; }
-	.bg-blueberry      .item-col-2:nth-child(1) {order: 2; }
-	.bg-blueberry      .item-col-2:nth-child(2) {order: 1; }
-  }
+/* Mobiles: Re-order columns inside first and third flexbox parent containers */
+@media all and (max-width:767px) { 
+	.container-flexbox.bg-watermelon .item-col-2:nth-child(1) { order: 2 }
+	.container-flexbox.bg-watermelon .item-col-2:nth-child(2) { order: 1 }
+	.container-flexbox.bg-blueberry  .item-col-2:nth-child(1) { order: 2 }
+	.container-flexbox.bg-blueberry  .item-col-2:nth-child(2) { order: 1 }
+}
